@@ -20,11 +20,11 @@ console.log("Suma total de ventas es:", sumaVentas(cantVenta));
 /*  11. Crea una aplicación que nos pida un día de la semana y que nos diga si es un día laboral
     o no. Usa un switch para ello. */
 
-    let diaSemana = parseInt(prompt("'Digite el día de la semana' 1-Domingo, 2-Lunes, 3-Martes, 4-Miercoles, 5-Jueves, 6-Viernes, 7-Sabado"));
+    let diaSemana = parseInt(prompt("Digite el día de la semana\n1-Domingo\n2-Lunes\n3-Martes\n4-Miercoles\n5-Jueves\n6-Viernes\n7-Sabado"));
 
     while ((diaSemana > 7) || (diaSemana < 0)) {
         console.log("La semana solo tiene 7 días");
-        diaSemana = parseInt(prompt("'Digite el día de la semana' 1-Domingo, 2-Lunes, 3-Martes, 4-Miercoles, 5-Jueves, 6-Viernes, 7-Sabado"));
+        diaSemana = parseInt(prompt("Digite el día de la semana\n1-Domingo\n2-Lunes\n3-Martes\n4-Miercoles\n5-Jueves\n6-Viernes\n7-Sabado"));
     }
     
     switch (diaSemana) {

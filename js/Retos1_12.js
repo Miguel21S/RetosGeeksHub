@@ -10,4 +10,31 @@
     ^: 1o operando como base y 2o como exponente.
     %: módulo, resto de la división entre operando1 y operando2.*/
 
-    
+let valor1 = parseFloat(prompt("Digite el primero valor"));
+let valor2 = parseFloat(prompt("Digite el segundo valor"));
+
+let operador = prompt("Digite el operador (+, -, *, /, ^, %)");
+
+switch (operador) {
+    case "+":
+        console.log(valor1 + valor2);
+        break;
+    case "-":
+        console.log(valor1 - valor2);
+        break;
+    case "*":
+        console.log(valor1 * valor2);
+        break;
+    case "/":
+        console.log(valor1 / valor2);
+        break;
+    case "^":
+        console.log(Math.pow(valor1, valor2));
+        break;
+    case "%":
+        console.log(valor1 % valor2);
+        break;
+    default:
+        console.log("Operador incorrecto");
+        break;
+}
