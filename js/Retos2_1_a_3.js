@@ -108,15 +108,35 @@
 //     }
 //     return factorial;
 // }
-// console.log(factorial(fac))
+// console.log(factorial(fac));
 
+/*5.  Crea una aplicación que nos convierta un número en base decimal a binario. Esto lo
+    realizará un método al que le pasaremos el número como parámetro, devolverá un String
+    con el número convertido a binario. Para convertir un número decimal a binario, debemos
+    dividir entre 2 el número y el resultado de esa división se divide entre 2 de nuevo hasta que
+    no se pueda dividir más, el resto que obtengamos de cada división formará el número
+    binario, de abajo a arriba. */
+
+// let conversion = parseInt(prompt("Digite el número a convertir de base 10 a 2"));
+// let cadena = "";
+// let decimalBinario = (numero) =>{
+//     while(numero > 0){
+//         cadena = (numero % 2) + cadena;
+//         numero = Math.floor(numero / 2);
+//     }
+//     return cadena;
+// }
+// console.log(decimalBinario(conversion));
+
+/* 6. Crea una aplicación que nos cuente el número de cifras de un número entero positivo
+    (hay que controlarlo) pedido por prompt. Crea un método que realice esta acción, pasando
+    el número por parámetro devolverá el número de cifras. */
+let contarNumeros = parseInt(prompt("Digite el numero para saber cuantos digitos tienen"));
 let cadena = "";
-let decimalBinario = (numero) =>{
-    while(numero > 0){
-        cadena = (numero % 2) + cadena;
-        numero = Math.floor(numero / 2);
-    }
-    return cadena;
-}
-
-console.log(decimalBinario(53))
+let tamanoDigito = (nuemro) => {
+    if (nuemro > 0){
+        cadena = nuemro + cadena
+     }
+     return cadena.length;
+};
+console.log(tamanoDigito(contarNumeros));
