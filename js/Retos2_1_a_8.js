@@ -90,8 +90,10 @@
     for(let i = 2; i <= numeroPrimo; i++){
         if(esprimo(i)){
             console.log(i, "es primo");
+            break;
         } else {
             console.log(i, "no es primo");
+            break;
         }
     }
 
