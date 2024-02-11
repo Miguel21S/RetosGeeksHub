@@ -131,12 +131,44 @@
 /* 6. Crea una aplicación que nos cuente el número de cifras de un número entero positivo
     (hay que controlarlo) pedido por prompt. Crea un método que realice esta acción, pasando
     el número por parámetro devolverá el número de cifras. */
-let contarNumeros = parseInt(prompt("Digite el numero para saber cuantos digitos tienen"));
-let cadena = "";
-let tamanoDigito = (nuemro) => {
-    if (nuemro > 0){
-        cadena = nuemro + cadena
-     }
-     return cadena.length;
+
+// let contarNumeros = parseInt(prompt("Digite el numero para saber cuantos digitos tienen"));
+// let cadena = "";
+// let tamanoDigito = (nuemro) => {
+//     if (nuemro > 0){
+//         cadena = nuemro + cadena
+//      }
+//      return cadena.length;
+// };
+// console.log(tamanoDigito(contarNumeros));
+
+/* 7. Crea una aplicación que nos convierta una cantidad de euros introducida por prompt a
+    otra moneda, estas pueden ser a dólares, yenes o libras. El método tendrá como
+    parámetros, la cantidad de euros y la moneda a pasar que será una cadena, este no
+    devolverá ningún valor, mostrará un mensaje indicando el cambio. 
+    El cambio de divisas es:
+        • 0.86 libras es un 1 €
+        • 1.28611 $ es un 1 €
+        • 129.852 yenes es un 1 € */
+
+let euro = parseInt(prompt("Digite la cantidad de Euro"));
+let moneda = prompt("Digite tipo de mpneda: \nDolar\nLibra\nYenes");
+let cambio = (euros, monedas) => {
+    switch(monedas){
+        case "dolar":
+            console.log("Dolar:", euros * 1.2861);
+            break;
+        case "libra":
+            console.log("Libra:", euros * 0.86);
+    
+            break;
+        case "yenes":
+            console.log("Yenes:", euros * 129.852)
+            break;
+        default:
+            moneda = "Solo se convierte las 3 monedas";
+            break;
+    }
 };
-console.log(tamanoDigito(contarNumeros));
+cambio(euro, moneda);
+
