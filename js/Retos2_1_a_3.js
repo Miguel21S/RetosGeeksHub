@@ -151,24 +151,38 @@
         • 1.28611 $ es un 1 €
         • 129.852 yenes es un 1 € */
 
-let euro = parseInt(prompt("Digite la cantidad de Euro"));
-let moneda = prompt("Digite tipo de mpneda: \nDolar\nLibra\nYenes");
-let cambio = (euros, monedas) => {
-    switch(monedas){
-        case "dolar":
-            console.log("Dolar:", euros * 1.2861);
-            break;
-        case "libra":
-            console.log("Libra:", euros * 0.86);
+// let euro = parseInt(prompt("Digite la cantidad de Euro"));
+// let moneda = prompt("Digite tipo de mpneda: \nDolar\nLibra\nYenes");
+// let cambio = (euros, monedas) => {
+//     switch(monedas){
+//         case "dolar":
+//             console.log("Dolar:", euros * 1.2861);
+//             break;
+//         case "libra":
+//             console.log("Libra:", euros * 0.86);
     
-            break;
-        case "yenes":
-            console.log("Yenes:", euros * 129.852)
-            break;
-        default:
-            moneda = "Solo se convierte las 3 monedas";
-            break;
+//             break;
+//         case "yenes":
+//             console.log("Yenes:", euros * 129.852)
+//             break;
+//         default:
+//             moneda = "Solo se convierte las 3 monedas";
+//             break;
+//     }
+// };
+// cambio(euro, moneda);
+let tamano = parseInt(prompt("Digite el tamaño de arreglo"));
+let entraValorArray = 0;
+// let array = [];
+let nurellenarArray = (numero) => {
+    let array = [];
+    for(let i = 0; i < numero; i++){
+        entraValorArray = parseInt(prompt("Digite los valores para rellenar el arreglo"));
+        array.push(entraValorArray);
     }
-};
-cambio(euro, moneda);
+    return array;
+}
+
+console.log(nurellenarArray(tamano));
+
 
