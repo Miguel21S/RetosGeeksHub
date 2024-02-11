@@ -69,5 +69,4 @@ console.log("Suma total de ventas es:", sumaVentas(cantVenta));
             console.log("Enhorabuena");
             break;
         }
-    
     }

@@ -176,8 +176,7 @@ cambio(euro, moneda);
 por consola el índice y el valor al que corresponde. Haz dos métodos, uno para
 rellenar valores y otro para mostrar. */
 
-let tamano = parseInt(prompt("Digite el tamaño de arreglo"));
-let array = new Array(tamano);
+let array = new Array(10);
 let entraValorArray = 0;
 
 let nurellenarArray = () => {
