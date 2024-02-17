@@ -19,31 +19,63 @@ y otro para mostrar el contenido y la suma del array. */
 // };
 
 // imprimirArray();
+
 /* 10. Crea un array de números de un tamaño pasado por prompt, el array contendrá
 números aleatorios primos entre los números deseados, por último, nos indica cuál es el
 mayor de todos. Haz un método para comprobar que el número aleatorio es primo, puedes
 hacer todos los métodos que necesites. */
 
-// let tam = parseInt(prompt("Digite el tamaño de arreglo"));
-// // let numeroPrimo = parseInt(prompt("Digite el número para saber si es primo o no"));
+let tamanoArray = parseInt(prompt("Digite el tamaño de arreglo"));
 
-// let arrayAleatorios = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10));
+let primos = (numero) => {
 
-// let primo = arrayAleatorios.sort((a, b)=>{
-//     return a-b;
-// });
+    if (numero <= 1) { 
+        return false;
+    }
+    if (numero <= 3) {
+        return true;
+    }
+    if (numero % 2 === 0 || numero % 3 === 0) {
+        return false;
+    }
 
-//     for (let i = 2; i <= primo.length; i++) {
-//         if (primo % i === 0 && i !== primo) {
-//             console.log(`${primo} is not a prime number`);
-//             break;
-//         }
-//         console.log(`${primo} is a prime number`);
-//     }
+    let i = 5;
+    while (i * i <= numero) {
+        if (numero % i === 0 || numero % (i + 2) === 0) {
+            return false;
+        }
+        i += 6;
+    }
+    return true;
+}
 
-// // return primo;
-// console.log("Ordenado",primo);
+let generarNumeroAleatorioPrimos = (min, max) => {
+    let numeroAleatorio;
+    do{
+        numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+    }while(!primos(numeroAleatorio));
+    return numeroAleatorio;
+}
 
+let mayorNumeroPrimo = (array) => {
+    let mayor = 0;
+    for(let i = 0; i < array.length; i++){
+        if ((array[i] > mayor) && primos(array[i])){
+            mayor = array[i];
+        }
+    }
+    return mayor;
+}
+
+let arrDeNumerosPrimos = [];
+for(let i = 0; i < tamanoArray; i++) {
+    let primoAleatorio = generarNumeroAleatorioPrimos(1, 300);
+    arrDeNumerosPrimos.push(primoAleatorio);
+}
+
+let mayorPrimo = mayorNumeroPrimo(arrDeNumerosPrimos);
+console.log("Los números primos son: "+ arrDeNumerosPrimos);
+console.log("El mayor número primo es: "+ mayorPrimo);
 
 
 /* 12. Crea un array de números de un tamaño pasado por prompt, el array contendrá
@@ -52,29 +84,29 @@ hacer todos los métodos que necesites. */
     estos deben guardarse en un nuevo array. Por ejemplo, en un array de 10 posiciones le
     indicamos mostrar los números acabados en 5, podría salir 155, 25, etc. */
 
-let tamanoArray = parseInt(prompt("Digite tamaño de Array"));
-let numerosAcabados = parseInt(prompt("Digite el número para saber si esta el final o no"));
-let finalArray = [];
+// let tamanoArray = parseInt(prompt("Digite tamaño de Array"));
+// let numerosAcabados = parseInt(prompt("Digite el número para saber si esta el final o no"));
+// let finalArray = [];
 
-while(isNaN(tamanoArray) || tamanoArray <= 1) {
-    tamanoArray = parseInt(prompt("Digite un número positivo para el tamaño entre 1 a ..."));
-}
+// while(isNaN(tamanoArray) || tamanoArray <= 1) {
+//     tamanoArray = parseInt(prompt("Digite un número positivo para el tamaño entre 1 a ..."));
+// }
 
-while(isNaN(numerosAcabados) || numerosAcabados < 0) {
-    numerosAcabados = parseInt(prompt("Digite un número positivo o 0 "));
-}
+// while(isNaN(numerosAcabados) || numerosAcabados < 0) {
+//     numerosAcabados = parseInt(prompt("Digite un número positivo o 0 "));
+// }
 
-let aleatoriosArr = Array.from({ length: tamanoArray }, () => Math.floor(Math.random() * 300));
+// let aleatoriosArr = Array.from({ length: tamanoArray }, () => Math.floor(Math.random() * 300));
 
-const searchArray = (numerosAcabados, array) => {
-    for (let i = 0; i < tamanoArray; i++) {
-        if (array[i] % 10 === numerosAcabados) {
-            finalArray.push(array[i]);
-        }
-    }
-}
+// const searchArray = (numerosAcabados, array) => {
+//     for (let i = 0; i < tamanoArray; i++) {
+//         if (array[i] % 10 === numerosAcabados) {
+//             finalArray.push(array[i]);
+//         }
+//     }
+// }
 
-searchArray(numerosAcabados, aleatoriosArr)
+// searchArray(numerosAcabados, aleatoriosArr)
 
-console.log("Array Generado: " + aleatoriosArr)
-console.log("Nº que terminan en: (" + numerosAcabados + ") Son: "+ finalArray)
+// console.log("Array Generado: " + aleatoriosArr)
+// console.log("Nº que terminan en: (" + numerosAcabados + ") Son: "+ finalArray)
