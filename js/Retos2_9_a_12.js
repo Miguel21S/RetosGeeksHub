@@ -25,57 +25,84 @@ números aleatorios primos entre los números deseados, por último, nos indica 
 mayor de todos. Haz un método para comprobar que el número aleatorio es primo, puedes
 hacer todos los métodos que necesites. */
 
-let tamanoArray = parseInt(prompt("Digite el tamaño de arreglo"));
+// let tamanoArray = parseInt(prompt("Digite el tamaño de arreglo"));
 
-let primos = (numero) => {
+// let primos = (numero) => {
 
-    if (numero <= 1) { 
-        return false;
-    }
-    if (numero <= 3) {
-        return true;
-    }
-    if (numero % 2 === 0 || numero % 3 === 0) {
-        return false;
-    }
+//     if (numero <= 1) { 
+//         return false;
+//     }
+//     if (numero <= 3) {
+//         return true;
+//     }
+//     if (numero % 2 === 0 || numero % 3 === 0) {
+//         return false;
+//     }
 
-    let i = 5;
-    while (i * i <= numero) {
-        if (numero % i === 0 || numero % (i + 2) === 0) {
-            return false;
-        }
-        i += 6;
-    }
-    return true;
+//     let i = 5;
+//     while (i * i <= numero) {
+//         if (numero % i === 0 || numero % (i + 2) === 0) {
+//             return false;
+//         }
+//         i += 6;
+//     }
+//     return true;
+// }
+
+// let generarNumeroAleatorioPrimos = (min, max) => {
+//     let numeroAleatorio;
+//     do{
+//         numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+//     }while(!primos(numeroAleatorio));
+//     return numeroAleatorio;
+// }
+
+// let mayorNumeroPrimo = (array) => {
+//     let mayor = 0;
+//     for(let i = 0; i < array.length; i++){
+//         if ((array[i] > mayor) && primos(array[i])){
+//             mayor = array[i];
+//         }
+//     }
+//     return mayor;
+// }
+
+// let arrDeNumerosPrimos = [];
+// for(let i = 0; i < tamanoArray; i++) {
+//     let primoAleatorio = generarNumeroAleatorioPrimos(1, 300);
+//     arrDeNumerosPrimos.push(primoAleatorio);
+// }
+
+// let mayorPrimo = mayorNumeroPrimo(arrDeNumerosPrimos);
+// console.log("Los números primos son: "+ arrDeNumerosPrimos);
+// console.log("El mayor número primo es: "+ mayorPrimo);
+
+
+/*  11. Crea dos arrays de números con la dimensión pasada por teclado. Uno de ellos estará
+    rellenado con números aleatorios y el otro apuntará al array anterior, reasigna los valores
+    del segundo array con valores aleatorios. Después, crea un método que tenga como
+    parámetros, los dos arrays y devuelva uno nuevo con la multiplicación de la posición 0 del
+    array1 con el del array2 y así sucesivamente. Por último, muestra el contenido de cada
+    array. */
+
+let tamanioArray1 = parseInt(prompt("Digit el tamaño de array1"));
+let array1 = [];
+let array2 = [];
+
+for (let i = 0; i < tamanioArray1; i++) {
+    array1.push(Math.floor(Math.random() * 100));
+    array2.push(array1[i]);
 }
+// for(let i = 0; i < tamanioArray1; i++){
+//     array2.push(array1[i]);
+// }
+let multiplicarArrays = array1.flatMap((array1, i) => {
+    return array1 * array2[i];
+});
 
-let generarNumeroAleatorioPrimos = (min, max) => {
-    let numeroAleatorio;
-    do{
-        numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
-    }while(!primos(numeroAleatorio));
-    return numeroAleatorio;
-}
-
-let mayorNumeroPrimo = (array) => {
-    let mayor = 0;
-    for(let i = 0; i < array.length; i++){
-        if ((array[i] > mayor) && primos(array[i])){
-            mayor = array[i];
-        }
-    }
-    return mayor;
-}
-
-let arrDeNumerosPrimos = [];
-for(let i = 0; i < tamanoArray; i++) {
-    let primoAleatorio = generarNumeroAleatorioPrimos(1, 300);
-    arrDeNumerosPrimos.push(primoAleatorio);
-}
-
-let mayorPrimo = mayorNumeroPrimo(arrDeNumerosPrimos);
-console.log("Los números primos son: "+ arrDeNumerosPrimos);
-console.log("El mayor número primo es: "+ mayorPrimo);
+console.log("Array 1: " + array1);
+console.log("Array 2: " + array2);
+console.log("Multiplicación de Array 1 con Array 2: " + multiplicarArrays);
 
 
 /* 12. Crea un array de números de un tamaño pasado por prompt, el array contendrá
